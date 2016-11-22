@@ -23,7 +23,7 @@ postcss 后处理器
 
 
 ### 启动restful测试数据服务器
-`npm start mock` 启动测试数据服务器，数据配置在mock文件夹里，更详细的配置请参考[json-server文档](https://github.com/typicode/json-server)
+`npm run mock` 启动测试数据服务器，数据配置在mock文件夹里，更详细的配置请参考[json-server文档](https://github.com/typicode/json-server)
 
 ### 代码规范检查
 ```
