@@ -12,6 +12,10 @@
     "deploy": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "dependencies": {
+    "beyond-lib": "^0.6.7",
+    "beyond-remote": "^0.3.0",
+    "es6-promise": "^4.0.5",
+    "normalize.css": "^5.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   },
