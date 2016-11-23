@@ -46,7 +46,8 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/index.html'),
-			inject: true
+			inject: true,
+			chunks : ['commons','main']
 		})
 	],
 	debug : true,

@@ -50,7 +50,8 @@ module.exports = {
 		new ExtractTextPlugin("[name].[hash].bundle.css",{allChunks: true}),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/index.html'),
-			inject: true
+			inject: true,
+			chunks : ['commons','main']
 		})
 	]
 
