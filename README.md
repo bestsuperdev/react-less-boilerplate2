@@ -3,23 +3,32 @@
 
 
 ### IE8 支持
-将  package.josn 中 react 和 react-dom 改为 0.14.0 版本  
-开发过程中，禁止使用 es6 module 写法  
+请使用 IE8 分支
 
 ### 开始
 
 1. clone this repo
 2. cd into folder
 3. `npm install`
-4. `npm start` 启动开发服务器
-5. auto open http://yourIP:9000 (not localhost or 127.0.0.1 , for mobile test)
+4. `npm run mock` 先启动测试数据服务器 
+5. `npm start` 启动开发服务器
+6. auto open http://yourIP:9000 (not localhost or 127.0.0.1 , for mobile test)
 
 
 
-### 内置部件
-webpack集成了对react jsx语法和es2015的支持，由babel实现。关于babel对es2015的支持情况，可以查看babel的相关文档[babel](http://babeljs.io/)
-less预处理器
-postcss 后处理器
+### 内置开发辅助部件
+
+### jsx 和 less 支持
+webpack集成了对react jsx语法和 es2015 的支持，由babel实现。关于babel对es2015的支持情况，可以查看babel的相关文档 [babel文档](http://babeljs.io/)  
+
+#### postcss 后处理器
+内部集成了 postcss-filter-gradient 和 autoprefixer ,要支持更多插件请查看[postcss.parts](http://postcss.parts/)
+
+#### 集成类库
+normalize.css  
+[beyond-lib](https://github.com/bestsuperdev/beyond-lib)  
+[beyond-remote](https://github.com/bestsuperdev/beyond-remote)   
+
 
 
 ### 启动restful测试数据服务器
