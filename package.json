@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node ./server.js",
-    "mock": "cd ./mock & json-server --watch db.json --routes routes.json --port 9001",
+    "mock": "cd ./mock && json-server --watch db.json --routes routes.json --port 9001",
     "lint": "eslint ./src",
     "test": "karma start  --config karma.conf.js",
     "clean": "rimraf dist",
