@@ -34,9 +34,9 @@ module.exports = {
 		root : path.resolve('./src')
 	},
 	postcss: function () {
-		return [require('autoprefixer'),require('postcss-filter-gradient')];
+		return [require('autoprefixer'),require('postcss-filter-gradient')]
 	},
-	plugins : [ 
+	plugins : [
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
 				warnings: false
@@ -51,12 +51,12 @@ module.exports = {
 			}
 		}),
 		new webpack.optimize.CommonsChunkPlugin('commons', '[name].[hash].bundle.js'),
-		new ExtractTextPlugin("[name].[hash].bundle.css",{allChunks: true}),
+		new ExtractTextPlugin('[name].[hash].bundle.css',{allChunks: true}),
 		new HtmlWebpackPlugin({
-			template : path.join(__dirname,'src/index.html'),
+			template : path.join(__dirname,'src/dist.html'),
 			inject: true,
 			chunks : ['commons','main']
 		})
 	]
 
-};
+}

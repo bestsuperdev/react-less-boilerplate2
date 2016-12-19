@@ -45,7 +45,7 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin('commons', '[name].bundle.js'),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
-			template : path.join(__dirname,'src/index.html'),
+			template : path.join(__dirname,'src/dev.html'),
 			inject: true,
 			chunks : ['commons','main']
 		})
