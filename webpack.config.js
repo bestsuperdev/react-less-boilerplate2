@@ -15,6 +15,10 @@ module.exports = {
 		filename: '[name].[hash].bundle.js',
 		chunkFilename: '[id].[chunkhash].chunk.js'
 	},
+	externals : {
+		'react' : 'React',
+		'react-dom' : 'ReactDOM'
+	},
 	module: {
 		loaders: [
 			{ test : /\.less$/, loader : ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader!less-loader',{publicPath : ''}) },
