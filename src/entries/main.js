@@ -19,7 +19,7 @@ if (typeof window !== 'undefined' && window.app && window.app.bundlesPath) {
 }
 
 
-require("babel-polyfill")
+require('es6-promise').polyfill()
 import React from 'react'
 import ReactDom from 'react-dom'
 import App from 'scripts/components/App'
