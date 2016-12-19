@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var es3ifyPlugin = require('es3ify-webpack-plugin')
 
 module.exports = {
 	context: path.join(__dirname,'./src/entries'),
@@ -37,12 +38,17 @@ module.exports = {
 		return [require('autoprefixer'),require('postcss-filter-gradient')]
 	},
 	plugins : [
+		new es3ifyPlugin(),		
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
-				warnings: false
+				warnings: false,
+				properties  : false
 			},
 			mangle: {
-				except: ['$super', '$', 'exports', 'require']
+				except: ['$super', '$', 'exports', 'require'],
+			},
+			output : {
+				keep_quoted_props: true
 			}
 		}),
 		new webpack.DefinePlugin({
