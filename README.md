@@ -1,9 +1,13 @@
 ## React Less Boilerplate
 这个脚手架项目专门为webpack+react开发单页应用定制，支持ie8以及其他现代浏览器，并采用less和postcss处理css。
 
-
 ### IE8 支持
-请使用 IE8 分支
+开发过程中，禁止使用 es6 module 写法 ,详情见下述页面
+
+[Babel下的ES6兼容性与规范](http://imweb.io/topic/561f9352883ae3ed25e400f5)  
+[react 项目的一个ie8兼容性问题](http://www.aliued.com/?p=3240)  
+[react-ie8](https://github.com/xcatliu/react-ie8)  
+
 
 ### 开始
 
