@@ -10,8 +10,8 @@ module.exports = {
 	output: {
 		path: path.join(__dirname,'hot'),
 		// publicPath: "/bundles/",
-		filename: "[name].bundle.js",
-		chunkFilename: "[id].chunk.js"
+		filename: '[name].bundle.js',
+		chunkFilename: '[id].chunk.js'
 	},
 	module: {
 		loaders: [
@@ -21,7 +21,7 @@ module.exports = {
 			// { test : /\.jsx?$/ , loader : 'babel-loader' , query:{ presets : ['es2015','react'] } , exclude: /(node_modules|bower_components)/},
 			//如果不超过30000/1024kb,那么就直接采用dataUrl的形式,超过则返回链接,图片会复制到dist目录下
 			{ test: /\.(png|jpg|jpeg|gif)$/, loader: "url-loader?limit=30000" },
-			{ test: /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : "file-loader"}
+			{ test: /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : 'file-loader'}
 		]
 	},
 
@@ -38,11 +38,11 @@ module.exports = {
 	},
 	plugins : [ 
 		new webpack.DefinePlugin({
-			"process.env" : {
-				NODE_ENV : JSON.stringify("development")
+			'process.env' : {
+				NODE_ENV : JSON.stringify('development')
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin("commons", "[name].bundle.js"),
+		new webpack.optimize.CommonsChunkPlugin('commons', '[name].bundle.js'),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/index.html'),
@@ -54,4 +54,4 @@ module.exports = {
 	devtool : '#inline-source-map'
 
 	//devServer 配置在webpack.dev.server.js 中
-};
+}

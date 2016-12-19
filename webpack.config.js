@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
 	context: path.join(__dirname,'./src/entries'),
@@ -12,8 +12,8 @@ module.exports = {
 	output: {
 		path: path.join(__dirname,'dist'),
 		// publicPath: "/bundles/",
-		filename: "[name].[hash].bundle.js",
-		chunkFilename: "[id].[hash].chunk.js"
+		filename: '[name].[hash].bundle.js',
+		chunkFilename: '[id].[chunkhash].chunk.js'
 	},
 	module: {
 		loaders: [
@@ -21,8 +21,8 @@ module.exports = {
 			{ test : /\.css$/,  loader : ExtractTextPlugin.extract('style-loader','css-loader',{publicPath : ''}) },
 			// { test: /\.jsx?$/, loader : 'uglify-loader!babel-loader?presets[]=react,presets[]=es2015' , exclude: /(node_modules|bower_components)/},
 			{ test : /\.jsx?$/ ,loader : 'babel' , exclude: /(node_modules|bower_components)/},
-			{ test : /\.(png|jpg|jpeg|gif)$/, loader: "url-loader?limit=30000" },
-			{ test : /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : "file-loader"}
+			{ test : /\.(png|jpg|jpeg|gif)$/, loader: 'url-loader?limit=30000' },
+			{ test : /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : 'file-loader'}
 		]
 	},
 
@@ -42,11 +42,11 @@ module.exports = {
 			}
 		}),
 		new webpack.DefinePlugin({
-			"process.env" : {
-				NODE_ENV : JSON.stringify("production")
+			'process.env' : {
+				NODE_ENV : JSON.stringify('production')
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin("commons", "[name].[hash].bundle.js"),
+		new webpack.optimize.CommonsChunkPlugin('commons', '[name].[hash].bundle.js'),
 		new ExtractTextPlugin("[name].[hash].bundle.css",{allChunks: true}),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/index.html'),
