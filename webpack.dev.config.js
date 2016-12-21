@@ -27,10 +27,6 @@ module.exports = {
 
 	resolve : {
 		root : path.resolve('./src')
-		// alias : {
-		//     'react' : path.join(nodeModulesPath,'react/dist/react.js'),
-		//     'react-dom' :  path.join(nodeModulesPath,'react-dom/dist/react-dom.js')
-		// }
 	},
 
 	postcss: function () {
