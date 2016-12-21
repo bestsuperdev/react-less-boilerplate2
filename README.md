@@ -2,7 +2,9 @@
 这个脚手架项目专门为webpack+react开发单页应用定制，支持ie8以及其他现代浏览器，并采用less和postcss处理css。
 
 ### IE8 支持
-开发过程中，禁止使用 es6 module 写法 ,详情见下述页面
+
+开发环境不支持 IE8, 要在 IE8 中调试，请编译打包后用 IE8 访问 `http://127.0.0.0:9000/dist` 
+开发项目中如果要支持 IE8 ,请将 react 版本更换为 0.14.x 系列版本，代码方面详情见下述页面
 
 [Babel下的ES6兼容性与规范](http://imweb.io/topic/561f9352883ae3ed25e400f5)  
 [react 项目的一个ie8兼容性问题](http://www.aliued.com/?p=3240)  
