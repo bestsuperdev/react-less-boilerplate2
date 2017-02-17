@@ -60,12 +60,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mingzepeng/react-boilerplate.git"
+    "url": "https://github.com/bestsuperdev/react-less-boilerplate.git"
   },
   "author": "Peng mingze <mingzepeng@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mingzepeng/react-boilerplate/issues"
+    "url": "https://github.com/bestsuperdev/react-less-boilerplate/issues"
   },
-  "homepage": "https://github.com/mingzepeng/react-boilerplate"
+  "homepage": "https://github.com/bestsuperdev/react-less-boilerplate"
 }
