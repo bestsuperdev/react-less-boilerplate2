@@ -21,27 +21,34 @@ module.exports = {
 		'react-dom' : 'ReactDOM'
 	},
 	module: {
-		loaders: [
-			{ test : /\.less$/, loader : ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader!less-loader',{publicPath : ''}) },
-			{ test : /\.css$/,  loader : ExtractTextPlugin.extract('style-loader','css-loader',{publicPath : ''}) },
-			// { test: /\.jsx?$/, loader : 'uglify-loader!babel-loader?presets[]=react,presets[]=es2015' , exclude: /(node_modules|bower_components)/},
-			{ test : /\.jsx?$/ ,loader : 'babel' , exclude: /(node_modules|bower_components)/},
-			{ test : /\.(png|jpg|jpeg|gif)$/, loader: 'url-loader?limit=30000' },
-			{ test : /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : 'file-loader'}
+		rules : [
+			{test : /\.less$/, use : ExtractTextPlugin.extract({
+				fallback : 'style-loader',
+				use : ['css-loader','less-loader'],
+				publicPath : ''
+			})},
+			{test : /\.css$/, use : ExtractTextPlugin.extract({
+				fallback : 'style-loader',
+				use : 'css-loader',
+				publicPath : ''
+			})},
+			{test : /\.jsx?$/, loader : 'babel-loader' , exclude: /node_modules/},
+			{test: /\.(png|jpg|jpeg|gif)$/, use:[{loader : 'url-loader', options : {limit : 30000}}]},
+			{test: /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : 'file-loader'}
 		]
 	},
 
 	resolve : {
-		root : path.resolve('./src')
+		modules: [path.join(__dirname, "src"),"node_modules"]
 	},
-	postcss: function () {
-		return [require('autoprefixer'),require('postcss-filter-gradient')]
-	},
+	// postcss: function () {
+	// 	return [require('autoprefixer'),require('postcss-filter-gradient')]
+	// },
 	plugins : [
 		new es3ifyPlugin(),		
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
-				warnings: false,
+				warnings: true,
 				properties  : false
 			},
 			mangle: {
@@ -56,8 +63,17 @@ module.exports = {
 				NODE_ENV : JSON.stringify('production')
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin('commons', '[name].[hash].bundle.js'),
-		new ExtractTextPlugin('[name].[hash].bundle.css',{allChunks: true}),
+		// new webpack.optimize.CommonsChunkPlugin('commons', '[name].[hash].bundle.js'),
+		new webpack.optimize.CommonsChunkPlugin({
+			name : 'commons',
+			filename :  '[name].bundle.js'
+		}),
+		// new ExtractTextPlugin('[name].[hash].bundle.css',{allChunks: true}),
+		new ExtractTextPlugin({
+			filename : '[name].[hash].bundle.css',
+			allChunks : true,
+			disable : false
+		}),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/dist.html'),
 			inject: true,

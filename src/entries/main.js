@@ -21,12 +21,24 @@ if (typeof window !== 'undefined' && window.app && window.app.bundlesPath) {
 
 require('es6-promise').polyfill()
 import React from 'react'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import App from 'scripts/components/App'
+import { AppContainer } from 'react-hot-loader'
+const $root = document.querySelector('#root')
 
 if (process.env.NODE_ENV !== 'production') {
 	console.log('this is dev mode')
 }
 
+const render = Component => {
+  ReactDOM.render(<AppContainer><Component /></AppContainer>,$root)
+}
 
-ReactDom.render(React.createElement(App), document.querySelector('#root'))
+render(App)
+
+
+if (module.hot) {
+	module.hot.accept('scripts/components/App',function(){
+		render(App)
+	})
+}
