@@ -1,7 +1,7 @@
 {
   "todos": [
     {
-      "text": 12,
+      "text": "webpack2.x",
       "completed": true,
       "createTime": 1449207288509,
       "updateTime": null,
@@ -9,20 +9,12 @@
       "id": 1
     },
     {
-      "text": 12,
+      "text": "react-hot-loader@3.x-beta",
       "completed": true,
       "createTime": 1449207328115,
       "updateTime": null,
       "completedTime": 1449214831783,
       "id": 3
-    },
-    {
-      "text": 12,
-      "completed": true,
-      "createTime": 1449207328282,
-      "updateTime": null,
-      "completedTime": 1449218399801,
-      "id": 4
     }
   ],
   "comments": [

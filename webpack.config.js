@@ -24,7 +24,11 @@ module.exports = {
 		rules : [
 			{test : /\.less$/, use : ExtractTextPlugin.extract({
 				fallback : 'style-loader',
-				use : ['css-loader','less-loader'],
+				use : ['css-loader',{loader : 'postcss-loader', options : {
+					plugins : function(){
+						return [ require('autoprefixer')]
+					}
+				}},'less-loader'],
 				publicPath : ''
 			})},
 			{test : /\.css$/, use : ExtractTextPlugin.extract({

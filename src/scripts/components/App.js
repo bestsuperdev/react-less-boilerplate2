@@ -10,16 +10,17 @@ export default class App extends React.Component {
 	}
 
 	componentDidMount() {
-		// getTodos()
-		// .then((todos)=>{
-		// 	this.setState({todos})
-		// })
+		getTodos()
+		.then((todos)=>{
+			this.setState({todos})
+		})
 	}
 
 	render() {
 		return (
 			<div className='app'>
-				please enjoy it~
+				please enjoy it ~
+				<ul>{this.state.todos.map((todo)=> <li key={todo.id}>{todo.text}</li> )}</ul>
 			</div>
 		)
 	}
