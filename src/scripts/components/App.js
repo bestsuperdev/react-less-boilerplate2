@@ -1,6 +1,5 @@
 import React from 'react'
 import {getTodos} from 'scripts/remotes'
-import HelloWorld from './HelloWorld'
 export default class App extends React.Component {
 
 	constructor(props){
@@ -20,8 +19,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<div className='app'>
-				<HelloWorld />
-				<ul>{this.state.todos.map((todo)=> <li key={todo.id}>{todo.text}</li> )}</ul>
+				please enjoy it~
 			</div>
 		)
 	}
