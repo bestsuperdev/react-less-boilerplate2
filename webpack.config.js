@@ -74,14 +74,14 @@ module.exports = {
 		}),
 		// new ExtractTextPlugin('[name].[hash].bundle.css',{allChunks: true}),
 		new ExtractTextPlugin({
-			filename : '[name].[hash].bundle.css',
+			filename : '[name].[chunkhash].bundle.css',
 			allChunks : true,
 			disable : false
 		}),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/dist.html'),
 			inject: true,
-			chunks : ['commons','main']
+			chunks : ['manifest','commons','main']
 		})
 	]
 
