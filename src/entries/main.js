@@ -37,7 +37,7 @@ const render = Component => {
 render(App)
 
 
-if (module.hot) {
+if (typeof module !== 'undefined' && module.hot) {
 	module.hot.accept('scripts/components/App',function(){
 		render(App)
 	})

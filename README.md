@@ -49,6 +49,9 @@ npm run lint
 采用eslint对js代码进行检查，配置文件为.eslintrc.json ，可以参考官方文档[eslint](http://eslint.org/)
 
 ### 执行单元测试
+
+**目前因为 webpack 升级问题，单元测试暂时无法运行**
+
 ```
 npm run test
 ```

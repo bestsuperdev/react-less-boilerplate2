@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Thu Dec 10 2015 12:45:00 GMT+0800 (中国标准时间)
-var path =require('path')
+// var path =require('path')
 module.exports = function(config) {
   config.set({
 
@@ -40,8 +40,9 @@ module.exports = function(config) {
 
     webpack: {
         module: {
-            loaders: [
-                { test : /\.jsx?$/ ,loader : 'babel?presets[]=react,presets[]=es2015' , exclude: /(node_modules|bower_components)/}
+            rules: [
+                {test : /\.jsx?$/, loader : 'babel-loader' , exclude: /node_modules/}
+                // { test : /\.jsx?$/ ,use : 'babel?presets[]=react,presets[]=es2015' , exclude: /(node_modules|bower_components)/}
             ]
         }
 
