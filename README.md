@@ -1,5 +1,7 @@
-## React Less Boilerplate
-这个脚手架项目专门为webpack+react开发单页应用定制，支持ie8以及其他现代浏览器，并采用less和postcss处理css。
+## React Less Boilerplate2
+
+这个脚手架项目专门为 react 开发应用定制，支持ie8以及其他现代浏览器，使用 less 和 postcss 。和 [react-less-boilerplate](https://github.com/bestsuperdev/react-less-boilerplate) 主要区别是使用 webpack2.x 和 react-hot-loader3.x ， 目前 webpack1.x 已经不受支持了，而且 webpack2.x 能够提供更多的特性，API 也更加人性化。
+
 
 ### IE8 支持
 
@@ -22,13 +24,13 @@
 
 
 
-### 内置开发辅助部件
+### 内置开发辅助插件
 
 ### jsx 和 less 支持
-webpack集成了对react jsx语法和 es2015 的支持，由babel实现。关于babel对es2015的支持情况，可以查看babel的相关文档 [babel文档](http://babeljs.io/)  
+通过 babel6.x，支持 react jsx 和 es2015 的语法。关于 babel 的支持情况，可以查看babel的相关文档 [babel文档](http://babeljs.io/)  
 
 #### postcss 后处理器
-内部集成了 postcss-filter-gradient 和 autoprefixer ,要支持更多插件请查看[postcss.parts](http://postcss.parts/)
+内部集成了 autoprefixer ,要支持更多插件请查看[postcss.parts](http://postcss.parts/)
 
 #### 集成类库
 normalize.css  
@@ -75,14 +77,15 @@ new WebpackDevServer(webpack(config), {
 
 
 ### 图片和字体引入
-目前支持的图片引入为小于等于 30kb 的文件，会作为dataUrl编译在js或者css文件中，url返回dataUrl，超过该大小，会返回图片的url，css同理。
+在 js 和 css 中引入图片或者字体，当体积小于等于 30kb 时，会作为 dataUrl 编译在js或者css文件中，url返回dataUrl，超过该大小，会返回图片的url。
+
 ```javascript
 var url = require('img.png')
 var img = new Image
 img.src = url
 ```
 
-支持css引入字体文件，编译的时候会自动处理路径。
+
 
 ### 编译打包
 会在dist文件中输出合并后的js，css，图片，字体等静态资源文件。

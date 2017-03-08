@@ -1,8 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var LessPluginAutoPrefix = require('less-plugin-autoprefix')
-var autoprefixPlugin = new LessPluginAutoPrefix()
 
 module.exports = {
 	context: path.join(__dirname,'./src/entries'),
