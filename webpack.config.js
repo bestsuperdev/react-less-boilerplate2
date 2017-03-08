@@ -13,7 +13,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname,'dist'),
 		// publicPath: "/bundles/",
-		filename: '[name].[hash].bundle.js',
+		filename: '[name].[chunkhash].bundle.js',
 		chunkFilename: '[id].[chunkhash].chunk.js'
 	},
 	externals : {
@@ -69,8 +69,8 @@ module.exports = {
 		}),
 		// new webpack.optimize.CommonsChunkPlugin('commons', '[name].[hash].bundle.js'),
 		new webpack.optimize.CommonsChunkPlugin({
-			name : 'commons',
-			filename :  '[name].bundle.js'
+			names : ['commons','manifest'],
+			// filename :  '[name].[hash].bundle.js'
 		}),
 		// new ExtractTextPlugin('[name].[hash].bundle.css',{allChunks: true}),
 		new ExtractTextPlugin({
