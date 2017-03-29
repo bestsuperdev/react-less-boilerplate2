@@ -62,8 +62,11 @@ npm run test
 
 
 ### 设置代理
+
+**下面代理方式不推荐使用，目前已经通过 express-http-proxy 设置 代理，详情请看 server.js 文件 **
 `npm start`启动的是webpack-dev-server服务器并进行开发，如果需要请求api进行开发测试，那么就会存在跨域的问题，因此需要设置webpack-dev-server的代理服务器，将webpack-dev-server服务器的一个path映射到api服务器。请更改server.js文件中的new WebpackDevServer 第二个参数的proxy属性，示例如下：
 ```
+//不推荐使用以下代码，某些情况下会失效，以及出现一些奇怪的问题
 // `/api/*` 会映射 http://127.0.0.1:3000/api/* ，如 `/api/todos` 映射 http://127.0.0.1:3000/api/todos
 new WebpackDevServer(webpack(config), {
   proxy : {
@@ -74,6 +77,24 @@ new WebpackDevServer(webpack(config), {
   
 })
 ```
+
+```
+// 推荐使用如下方式
+server.use('/api', proxy('http://127.0.0.1:9001', {
+	forwardPath: function (req, res) {
+		console.log(req.url);   
+		var redirect = require('url').parse(req.url).path;
+		console.log(redirect); 
+		return '/api' + redirect;   //如果转发后的 path 中不需要 api ，可以直接 return  redirect
+	},
+	https: false,
+	reqBodyEncoding: null
+}));
+```
+
+
+
+
 已经内置集成了一个restful测试数据服务器json-server，通过`npm run mock`启动，并从webpack-dev-server指向该服务，通过 `http://yourIP:9000/api` 可以访问，[点击查看json-server文档](https://github.com/typicode/json-server)
 
 关于apiPath的另外一些tips，可以查看 [前后端分离下的前后端交互路径问题](https://github.com/mingzepeng/react-boilerplate/blob/master/doc/apiPath.md)

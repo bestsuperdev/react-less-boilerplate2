@@ -7,10 +7,10 @@ require('styles/style.less')
  */
 if (typeof window !== 'undefined' && window.app && window.app.bundlesPath) {
 	__webpack_public_path__ = window.app.bundlesPath
-}else{
+} else {
 	const scripts = document.getElementsByTagName('script')
 	for (let i = scripts.length - 1; i >= 0; i--) {
-		if(scripts[i].src.indexOf('.bundle.js') >= 0){
+		if (scripts[i].src.indexOf('.bundle.js') >= 0) {
 			let src = scripts[i].getAttribute('src')
 			__webpack_public_path__ = src.substr(0, src.lastIndexOf('/') + 1)
 			break
@@ -31,14 +31,14 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const render = Component => {
-  ReactDOM.render(<AppContainer><Component /></AppContainer>,$root)
+	ReactDOM.render(<AppContainer><Component /></AppContainer>, $root)
 }
 
 render(App)
 
 
 if (typeof module !== 'undefined' && module.hot) {
-	module.hot.accept('scripts/components/App',function(){
+	module.hot.accept('scripts/components/App', function () {
 		render(App)
 	})
 }
