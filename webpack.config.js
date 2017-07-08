@@ -49,18 +49,19 @@ module.exports = {
 	// 	return [require('autoprefixer'),require('postcss-filter-gradient')]
 	// },
 	plugins : [
-		new es3ifyPlugin(),		
+		new webpack.optimize.ModuleConcatenationPlugin(),
+		// new es3ifyPlugin(),		
 		new webpack.optimize.UglifyJsPlugin({
-			compressor: {
-				warnings: true,
-				properties  : false
-			},
-			mangle: {
-				except: ['$super', '$', 'exports', 'require'],
-			},
-			output : {
-				keep_quoted_props: true
-			}
+			// compressor: {
+			// 	warnings: true,
+			// 	properties  : false
+			// },
+			// mangle: {
+			// 	except: ['$super', '$', 'exports', 'require'],
+			// },
+			// output : {
+			// 	keep_quoted_props: true
+			// }
 		}),
 		new webpack.DefinePlugin({
 			'process.env' : {
