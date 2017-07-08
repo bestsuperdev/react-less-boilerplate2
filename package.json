@@ -9,7 +9,8 @@
     "lint": "eslint ./src",
     "test": "karma start  --config karma.conf.js",
     "clean": "rimraf dist",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.js"
+    "prebuild" : "npm run clean",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "dependencies": {
     "beyond-lib": "^1.0.2",
