@@ -2,14 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var es3ifyPlugin = require('es3ify-webpack-plugin')
+// var es3ifyPlugin = require('es3ify-webpack-plugin')
+var merge = require('webpack-merge')
+var baseConfig = require('./webpack.base.js')
 
-module.exports = {
-	context: path.join(__dirname,'./src/entries'),
-	entry: {
-		main : './main.js',
-		commons : ['react','react-dom']
-	},
+module.exports = merge(baseConfig,{
 	output: {
 		path: path.join(__dirname,'dist'),
 		// publicPath: "/bundles/",
@@ -35,45 +32,21 @@ module.exports = {
 				fallback : 'style-loader',
 				use : 'css-loader',
 				publicPath : ''
-			})},
-			{test : /\.jsx?$/, loader : 'babel-loader' , exclude: /node_modules/},
-			{test: /\.(png|jpg|jpeg|gif)$/, use:[{loader : 'url-loader', options : {limit : 30000}}]},
-			{test: /\.(svg|ttf|eot|svg|woff(\(?2\)?)?)(\?[a-zA-Z_0-9.=&]*)?(#[a-zA-Z_0-9.=&]*)?$/, loader : 'file-loader'}
+			})}
 		]
 	},
 
-	resolve : {
-		modules: [path.join(__dirname, "src"),"node_modules"]
-	},
-	// postcss: function () {
-	// 	return [require('autoprefixer'),require('postcss-filter-gradient')]
-	// },
 	plugins : [
 		new webpack.optimize.ModuleConcatenationPlugin(),
-		// new es3ifyPlugin(),		
-		new webpack.optimize.UglifyJsPlugin({
-			// compressor: {
-			// 	warnings: true,
-			// 	properties  : false
-			// },
-			// mangle: {
-			// 	except: ['$super', '$', 'exports', 'require'],
-			// },
-			// output : {
-			// 	keep_quoted_props: true
-			// }
-		}),
 		new webpack.DefinePlugin({
 			'process.env' : {
 				NODE_ENV : JSON.stringify('production')
 			}
 		}),
-		// new webpack.optimize.CommonsChunkPlugin('commons', '[name].[hash].bundle.js'),
 		new webpack.optimize.CommonsChunkPlugin({
 			names : ['commons','manifest'],
-			// filename :  '[name].[hash].bundle.js'
+			filename :  '[name].[hash].bundle.js'
 		}),
-		// new ExtractTextPlugin('[name].[hash].bundle.css',{allChunks: true}),
 		new ExtractTextPlugin({
 			filename : '[name].[chunkhash].bundle.css',
 			allChunks : true,
@@ -86,4 +59,4 @@ module.exports = {
 		})
 	]
 
-}
+})

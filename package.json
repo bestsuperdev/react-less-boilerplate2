@@ -10,15 +10,16 @@
     "test": "karma start  --config karma.conf.js",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.pro.config.js --optimize-minimize"
   },
   "dependencies": {
     "beyond-lib": "^1.0.2",
     "beyond-remote": "^0.5.0",
-    "normalize.css": "^7.0.0",
     "es6-promise": "^4.0.5",
+    "normalize.css": "^7.0.0",
     "react": "^15.6.0",
-    "react-dom": "^15.6.0"
+    "react-dom": "^15.6.0",
+    "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
