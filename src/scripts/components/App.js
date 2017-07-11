@@ -1,5 +1,5 @@
 import React from 'react'
-// import {getTodos} from 'scripts/remotes'
+import {getTodos} from 'scripts/remotes'
 export default class App extends React.Component {
 
 	constructor(props){
@@ -10,10 +10,10 @@ export default class App extends React.Component {
 	}
 
 	componentDidMount() {
-		// getTodos()
-		// .then((todos)=>{
-			// this.setState({todos})
-		// })
+		getTodos()
+			.then((todos)=>{
+				this.setState({todos})
+			})
 	}
 
 	render() {
