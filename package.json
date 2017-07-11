@@ -16,7 +16,6 @@
     "beyond-lib": "^1.0.2",
     "beyond-remote": "^0.5.0",
     "es6-promise": "^4.0.5",
-    "fast-deep-equal": "^1.0.0",
     "normalize.css": "^7.0.0",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",

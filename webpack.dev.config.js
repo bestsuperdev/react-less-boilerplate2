@@ -49,4 +49,4 @@ module.exports = merge(baseConfig,{
 })
 
 
-console.log(module.exports)
+console.log(module.exports.module.rules)
