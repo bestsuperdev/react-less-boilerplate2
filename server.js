@@ -5,7 +5,7 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.dev.config');
 var opn = require('opn');
 var ip = '0.0.0.0';
-var port = 9002;
+var port = 9000;
 
 
 var cookieParser = require('cookie-parser');
