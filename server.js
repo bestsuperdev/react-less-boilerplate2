@@ -51,7 +51,7 @@ server.use(bodyParser.json({limit : '1000000kb'})); // for parsing application/j
 server.use(bodyParser.urlencoded({ extended: true ,limit : '1000000kb'})); // for parsing application/x-www-form-urlencoded
 server.use(cookieParser());
 
-server.listen(port, function (err) {
+server.listen(port,ip, function (err) {
 	if (err) {
 		console.log(err); //eslint-disable-line no-console
 	} else {

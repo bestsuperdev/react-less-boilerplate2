@@ -2,7 +2,6 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-// var es3ifyPlugin = require('es3ify-webpack-plugin')
 var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.js')
 
