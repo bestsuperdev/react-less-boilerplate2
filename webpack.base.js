@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
 	context: path.join(__dirname,'./src/entries'),
 	entry: {
-		main : './main.js',
-		commons : ['react','react-dom']
+		main : './main.js'
+		// commons : ['react','react-dom']
 	},
 
 	module: {

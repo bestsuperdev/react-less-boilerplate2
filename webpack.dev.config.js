@@ -35,10 +35,10 @@ module.exports = merge(baseConfig,{
 				NODE_ENV : JSON.stringify('development')
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name : 'commons',
-			filename :  '[name].bundle.js'
-		}),
+		// new webpack.optimize.CommonsChunkPlugin({
+		// 	name : 'commons',
+		// 	filename :  '[name].bundle.js'
+		// }),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/dev.html'),
 			inject: true,
