@@ -41,8 +41,8 @@ module.exports = merge(baseConfig,{
 		// }),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/dev.html'),
-			inject: true
-			// chunks : ['commons','main']
+			inject: true,
+			chunks : ['main']
 		})
 	],
 	devtool : '#inline-source-map'
