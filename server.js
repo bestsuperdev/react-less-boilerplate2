@@ -24,8 +24,8 @@ if (typeof config.entry === 'string') {
 		config.entry[k] = webpackDevServerEntries.concat(Array.isArray(main) ? main : [main])
 	}
 }
-console.log(config)
-const options = {
+
+var options = {
 	contentBase: path.resolve(__dirname, './'),
 	hot: true,
 	disableHostCheck : true,
@@ -40,16 +40,14 @@ const options = {
 	// }
 }
 
-const compiler = webpack(config);
-const server = new webpackDevServer(compiler, options);
+var compiler = webpack(config)
+var server = new webpackDevServer(compiler, options)
 
 
 
 server.use('/api', proxy('http://127.0.0.1:9001', {
 	forwardPath: function (req, res) {
-		console.log(req.url)   // 删除这行会出问题，暂时别删除
 		var redirect = require('url').parse(req.url).path
-		console.log(redirect)  // 删除这行会出问题，暂时别删除
 		return '/api' + redirect
 	},
 	https: false,
