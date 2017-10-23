@@ -49,7 +49,8 @@ module.exports = merge(baseConfig,{
 		new ExtractTextPlugin({
 			filename : '[name].[chunkhash].bundle.css',
 			allChunks : true,
-			disable : false
+			disable : false,
+			ignoreOrder : true
 		}),
 		new HtmlWebpackPlugin({
 			template : path.join(__dirname,'src/dist.html'),
