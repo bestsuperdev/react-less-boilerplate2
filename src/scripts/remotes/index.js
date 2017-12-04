@@ -7,7 +7,7 @@ remote.base({
 
 
 /**
- * @return {Promise<Todo2[]>}
+ * @return {Promise<Todo[]>}
  */
 export function getTodos(){
 	let call = remote.create({url : '/todos'})
