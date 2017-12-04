@@ -1,6 +1,10 @@
 import React from 'react'
 import {getTodos} from '../remotes'
-import styles from './styles.less'
+
+// @ts-ignore
+const styles = require('./styles.less')
+
+
 export default class App extends React.Component {
 
 	constructor(props){

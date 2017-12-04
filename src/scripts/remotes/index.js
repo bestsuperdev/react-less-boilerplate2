@@ -1,7 +1,18 @@
 const {remote} = require('beyond-remote')
-const apiBasePath = typeof window !== 'undefined' && window.app && window.app.apiBasePath ? window.app.apiBasePath : ''
+const apiBasePath = typeof app !== 'undefined' && app.apiBasePath ? app.apiBasePath : ''
+
 remote.base({
 	basePath : apiBasePath
 })
 
-export const getTodos = remote.create({url : '/todos'})
+
+/**
+ * @return {Promise<Todo2[]>}
+ */
+export function getTodos(){
+	let call = remote.create({url : '/todos'})
+	return call()
+}
+
+// 
+//export const getTodos2 = /** @type {()=>Promise<Todo[]>} */ (remote.create({url : '/todos'}))

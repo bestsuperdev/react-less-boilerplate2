@@ -39,6 +39,7 @@
     "plugins": ["react"],
     "globals": {
         "__webpack_public_path__": true,
-        "React" : true
+        "React" : true,
+        "app" : true
     }
 }

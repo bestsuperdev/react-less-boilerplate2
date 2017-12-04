@@ -30,6 +30,7 @@ if (process.env.NODE_ENV !== 'production') {
 	console.log('this is dev mode')
 }
 
+
 const render = Component => {
 	ReactDOM.render(<AppContainer><Component /></AppContainer>, $root)
 }
