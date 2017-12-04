@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var LessPluginAutoPrefix = require('less-plugin-autoprefix')
 var autoprefixPlugin = new LessPluginAutoPrefix()
 var extractLess = new ExtractTextPlugin({
-	filename: '[name].[chunkhash].bundle.css',
+	filename: '[name].bundle.css',
 	allChunks: true,
 	ignoreOrder: true,
 	disable: process.env.NODE_ENV !== 'production'

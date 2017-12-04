@@ -10,7 +10,8 @@
     "test": "karma start  --config karma.conf.js",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.pro.config.js --optimize-minimize"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.pro.config.js --optimize-minimize",
+    "build:mvc": "cross-env NODE_ENV=production webpack --config webpack.mvc.config.js --optimize-minimize"
   },
   "dependencies": {
     "@types/webpack-env": "^1.13.2",

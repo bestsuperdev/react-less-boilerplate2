@@ -6,6 +6,7 @@ declare namespace process{
 
 declare namespace app {
 	export const apiBasePath : string;
+	export const basePath : string;
 }
 
 interface RequireImport {
