@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        // "checkJs": true,
+        "baseUrl": ".",
+        "paths": {
+            "scripts/*": ["./src/scripts/*","./src/entries/*"]
+        }
+    },
+    "include": [
+        "src/scripts/*",
+        "src/entries/*"
+    ],
+    "files": [
+        "./globals.d.ts"
+    ]
+}

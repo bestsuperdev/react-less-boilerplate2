@@ -1,5 +1,6 @@
 import React from 'react'
 import {getTodos} from '../remotes'
+import styles from './styles.less'
 export default class App extends React.Component {
 
 	constructor(props){
@@ -22,7 +23,7 @@ export default class App extends React.Component {
 			<div className='app'>
 				<h1>todos</h1>
 				<ul>
-					{this.state.todos.map((item)=> <li key={item.id}>{item.text}</li> )}
+					{this.state.todos.map((item)=> <li className={styles.todo} key={item.id}>{item.text}</li> )}
 				</ul>
 			</div>
 		)
