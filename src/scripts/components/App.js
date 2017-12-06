@@ -1,7 +1,8 @@
+/// @ts-nocheck
+
 import React from 'react'
 import {getTodos} from '../remotes'
 
-// @ts-ignore
 const styles = require('./styles.less')
 
 

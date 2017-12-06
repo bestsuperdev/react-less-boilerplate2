@@ -12,7 +12,7 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    @Styles.Render("~/bundles/<%= htmlWebpackPlugin.options.entryName %>.bundle.css?v=<%= htmlWebpackPlugin.options.version %>")
+    @Styles.Render("~/bundles/<%= htmlWebpackPlugin.options.entry %>.bundle.css?v=<%= htmlWebpackPlugin.options.version %>")
     <script>
         var app = {
             apiBasePath: '/wfapi/api',
@@ -26,4 +26,4 @@
 </html>
 
 
-@Scripts.Render("~/bundles/commons.bundle.js?v=<%= htmlWebpackPlugin.options.version %>", "~/bundles/<%= htmlWebpackPlugin.options.entryName %>.bundle.js?v=<%= htmlWebpackPlugin.options.version %>")
+@Scripts.Render("~/bundles/commons.bundle.js?v=<%= htmlWebpackPlugin.options.version %>", "~/bundles/<%= htmlWebpackPlugin.options.entry %>.bundle.js?v=<%= htmlWebpackPlugin.options.version %>")

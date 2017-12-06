@@ -5,7 +5,7 @@ var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.js')
 
 function setView(options){
-	let template = options.template || 'empty.cshtml'
+	let template = options.template || 'blank.cshtml'
 	let entry = options.entry || 'main'
 	let controller =  options.controller || 'Home'
 	let action = options.action || 'Index'
@@ -15,7 +15,8 @@ function setView(options){
 		template : path.join(__dirname,'templates/' + template ),
 		inject: false,
 		filename : path.join(__dirname,'../Views/' + controller + '/' + action + '.cshtml'),
-		chunks : ['commons',entry]
+		chunks : ['commons',entry],
+		entry : entry
 	})
 }
 
